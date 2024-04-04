@@ -923,9 +923,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1958151806}
-  distance_x: 0
-  distance_y: 10
-  distance_z: -10
+  smoothSpeed: 0.125
+  locationOffset: {x: 0, y: 10, z: -10}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &968767167
 GameObject:
   m_ObjectHideFlags: 0
