@@ -925,7 +925,6 @@ MonoBehaviour:
   player: {fileID: 1958151806}
   smoothSpeed: 0.125
   locationOffset: {x: 0, y: 10, z: -10}
-  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &968767167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +1090,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1958151805}
+    - target: {fileID: 6675610093123345519, guid: 460923a98f8dd784787d33932d85ca3f, type: 3}
+      propertyPath: runSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6675610093123345519, guid: 460923a98f8dd784787d33932d85ca3f, type: 3}
       propertyPath: jumpForce
       value: 5
@@ -2628,6 +2631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  runSpeed: 2
   theRB: {fileID: 1762479097}
   jumpForce: 5
   animator: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     public float moveSpeed;
+    public float runSpeed = 5f;
     public Rigidbody theRB;
     public float jumpForce;
     public Animator animator;
@@ -42,11 +43,20 @@ public class Player_Controller : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(movement);
         }
-        theRB.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y, Input.GetAxis("Vertical") * moveSpeed);
+
+        if (Input.GetKey(KeyCode.LeftShift)) // running
+        {
+            theRB.velocity = new Vector3(Input.GetAxis("Horizontal") * (moveSpeed + runSpeed), theRB.velocity.y, Input.GetAxis("Vertical") * (moveSpeed + runSpeed));
+        }
+        else // walking
+        {
+            theRB.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y, Input.GetAxis("Vertical") * moveSpeed);
+        }
+
 
         if (Input.GetButtonDown("Jump"))
         {
             theRB.velocity = new Vector3(theRB.velocity.x, jumpForce, theRB.velocity.z);
-        }  
+        }
     }
 }
