@@ -5,8 +5,7 @@ public class Cam_Follow : MonoBehaviour
 {
     public Transform player;
     public float smoothSpeed = 0.125f;
-    public Vector3 locationOffset;
-    public Vector3 rotationOffset;
+    public Vector3 locationOffset = new Vector3(0,10,-10);
 
     void FixedUpdate()
     {
