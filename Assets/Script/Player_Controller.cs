@@ -4,50 +4,24 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    public float speed;
-    public float extraspeed;
-    public Animator animator;
+    public float moveSpeed;
+    public Rigidbody theRB;
+    public float jumpForce;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-
+        theRB = GetComponent<Rigidbody>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        if (h != 0 || v != 0)
-        {
-            animator.SetBool("Walking", true);
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                animator.SetBool("Running", true);
-            }
-            else
-            {
-                animator.SetBool("Running", false);
-            }
-        }
-        else
-        {
-            animator.SetBool("Walking", false);
-            animator.SetBool("Running", false);
-        }
-        // gameObject.transform.position = new Vector3(transform.position.x + (h * speed),0, transform.position.z + (v * speed));
-        Vector3 movement = new Vector3(h, 0.0f, v);
-        if (movement != new Vector3(0.0f, 0.0f, 0.0f))
-        {
-            transform.rotation = Quaternion.LookRotation(movement);
-        }
+        theRB.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y, Input.GetAxis("Vertical") * moveSpeed);
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetButtonDown("Jump"))
         {
-            transform.Translate(movement * (speed + extraspeed) * Time.deltaTime, Space.World);
-        }
-        else
-        {
-            transform.Translate(movement * speed * Time.deltaTime, Space.World);
-        }
+            theRB.velocity = new Vector3(theRB.velocity.x, jumpForce, theRB.velocity.z);
+        }  
     }
 }
