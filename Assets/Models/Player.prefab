@@ -132,7 +132,6 @@ MonoBehaviour:
   moveSpeed: 6
   runSpeed: 5
   theRB: {fileID: 4698088683747597828}
-  jumpForce: 5
   animator: {fileID: 3513824871025318904}
 --- !u!95 &3513824871025318904
 Animator:
